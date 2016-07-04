@@ -8,7 +8,6 @@
 
 #import "TimeUtil.h"
 #import <sys/utsname.h>
-#import "AppDelegate.h"
 
 @implementation TimeUtil
 
