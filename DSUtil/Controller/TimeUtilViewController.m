@@ -7,7 +7,17 @@
 //
 
 #import "TimeUtilViewController.h"
+#import "TimeUtil.h"
 
 @implementation TimeUtilViewController
+
+- (void)viewDidLoad{
+    
+    [super viewDidLoad];
+    
+    NSLog(@"%@",[TimeUtil getNowTime]);
+    
+    NSLog(@"%@",[TimeUtil yearArray]);
+}
 
 @end
