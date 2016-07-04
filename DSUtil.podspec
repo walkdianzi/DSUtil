@@ -25,8 +25,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/walkdianzi/DSUtil.git", :tag => "0.0.1" }
 
-  s.source_files  = "Util", "Util/**/*.{h,m}"
+  s.source_files  = "Util", "Util/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
-  s.public_header_files = "Util/**/*.h"
+  s.public_header_files = "Util/*.h"
 
 end
