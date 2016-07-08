@@ -252,12 +252,12 @@
     switch (positionType) {
         case BadgePositionTypeNormal:{
             
-            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(8, -8)];
+            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(8, 8)];
         }
             break;
         case BadgePositionTypeService:{
             
-            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(18, 0)];
+            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(18, 18)];
         }
             break;
         default:
