@@ -249,6 +249,24 @@
 
 + (void)setBadgeInView:(UIView *)superView number:(NSInteger)number positionType:(BadgePositionType)positionType{
     
+    switch (positionType) {
+        case BadgePositionTypeNormal:{
+            
+            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(8, -8)];
+        }
+            break;
+        case BadgePositionTypeService:{
+            
+            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(18, 0)];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
++ (void)setBadgeInView:(UIView *)superView number:(NSInteger)number positionPoint:(CGPoint)point{
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         for (UIView *subview in superView.subviews) {
             if ([subview isKindOfClass:[UIKitUtilBadgeView class]]) {
@@ -269,22 +287,10 @@
         badge.translatesAutoresizingMaskIntoConstraints = NO;
         [superView addSubview:badge];
         [superView bringSubviewToFront:badge];
-        switch (positionType) {
-            case BadgePositionTypeNormal:{
-                
-                [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeTop multiplier:1.0 constant:-8]];
-                [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-8]];
-            }
-                break;
-            case BadgePositionTypeService:{
-                
-                [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-                [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-18]];
-            }
-                break;
-            default:
-                break;
-        }
+        
+        [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeTop multiplier:1.0 constant:point.y]];
+        [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-point.x]];
+        
         if (number != 0) {
             [badge setHidden:NO];
             [badge setBadgeValue:[NSString stringWithFormat:@"%ld",(long)number]];

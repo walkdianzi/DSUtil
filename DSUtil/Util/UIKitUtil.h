@@ -33,7 +33,22 @@ typedef enum{
  */
 + (UIImageView *)getDashLineImageBounds:(CGRect)bounds fromPoint:(CGPoint)startPoint toPoint:(CGPoint)endPoint lineColor:(UIColor *)lineColor hightedLineLength:(CGFloat)hightedLineLength normalLineLength:(CGFloat)normalLineLength lineWidth:(CGFloat)lintWidth;
 
-
+/**
+ *  设置badge
+ *
+ *  @param superView    父view
+ *  @param number       数字
+ *  @param positionType positionType description
+ */
 + (void)setBadgeInView:(UIView *)superView number:(NSInteger)number positionType:(BadgePositionType)positionType;
+
+/**
+ *  设置badge
+ *
+ *  @param superView 父view
+ *  @param number    数字
+ *  @param point     以右上角为坐标原点
+ */
++ (void)setBadgeInView:(UIView *)superView number:(NSInteger)number positionPoint:(CGPoint)point;
 
 @end
