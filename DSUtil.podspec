@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DSUtil"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "iOS里面常常用到的工具类"
 
   
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/walkdianzi/DSUtil.git", :tag => "0.1.3" }
+  s.source       = { :git => "https://github.com/walkdianzi/DSUtil.git", :tag => "0.1.4" }
 
   s.source_files  = "DSUtil/Util", "DSUtil/Util/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
