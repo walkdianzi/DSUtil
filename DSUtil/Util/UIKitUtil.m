@@ -252,7 +252,7 @@
     switch (positionType) {
         case BadgePositionTypeNormal:{
             
-            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(8, 8)];
+            [UIKitUtil setBadgeInView:superView number:number positionPoint:CGPointMake(8, 10)];
         }
             break;
         case BadgePositionTypeService:{
@@ -288,7 +288,7 @@
         [superView addSubview:badge];
         [superView bringSubviewToFront:badge];
         
-        [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeTop multiplier:1.0 constant:point.y]];
+        [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeTop multiplier:1.0 constant:point.y]];
         [superView addConstraint:[NSLayoutConstraint constraintWithItem:badge attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-point.x]];
         
         if (number != 0) {
